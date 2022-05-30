@@ -5,7 +5,7 @@ version: '3.8'
 services:
   zentao:
     image: easysoft/zentao:${APP_VERSION}
-    container_name: ${APP_CONTAINER_NAME}
+    container_name: ${APP_NAME}
     ports:
       - ${APP_PORT}:80
     volumes:
@@ -20,14 +20,13 @@ services:
 
   mysql:
     image: mysql:${DB_MYSQL_VERSION}
-    container_name: zentao-mysql
+    container_name: ${APP_NAME}-db
     restart: always
     ports:
      - ${DB_MYSQL_PORT}:3306
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
-      - ${VOLUMES_PATH_PREFIX}/mysql/mysql_config/conf.d:/etc/mysql/conf.d
-      - ${VOLUMES_PATH_PREFIX}/mysql/mysql_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: ${DB_MYSQL_NAME}
       MYSQL_USER: ${DB_MYSQL_USER}
@@ -40,3 +39,4 @@ networks:
 
 volumes:
   zentao:
+  mysql_data:
