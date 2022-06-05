@@ -6,3 +6,4 @@ sed -i "s/dbUser :*\dbName : '$MYSQL_USER'/g" /www/zentaopms/module/install/cont
 sed -i "s/dbPassword :*\dbName : '$MYSQL_PASSWORD'/g" /www/zentaopms/module/install/control.php
 
 /.docker_init.sh
+tail -f /dev/null
