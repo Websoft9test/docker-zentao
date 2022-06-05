@@ -22,7 +22,10 @@ services:
     links: 
       - mysql
     restart: always
-
+    command: bash -c "cat /my_cmd > cmd.sh && chmod +x /cmd.sh && /cmd.sh"
+    configs:
+      - source: my_cmd
+      
   mysql:
     image: mysql:${DB_MYSQL_VERSION}
     container_name: ${APP_NAME}-db
@@ -37,7 +40,7 @@ services:
       MYSQL_USER: ${DB_MYSQL_USER}
       MYSQL_PASSWORD: ${DB_MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${DB_MYSQL_PASSWORD}
-
+      
 networks:
   default:
       name: ${APP_NAME}
@@ -45,3 +48,7 @@ networks:
 volumes:
   zentao:
   mysql_data:
+
+configs:
+  my_cmd:
+    file: ./cmd.sh
