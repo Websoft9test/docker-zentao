@@ -15,7 +15,10 @@ services:
       # The belows vars is need, otherwise container error
       zentao_DB_HOST: ${DB_MYSQL_HOST}
       zentao_DB_PASSWORD: ${DB_MYSQL_PASSWORD}
-      
+      MYSQL_USER: ${DB_MYSQL_USER}
+      MYSQL_PASSWORD: ${DB_MYSQL_PASSWORD}
+      MYSQL_DB: ${DB_MYSQL_NAME}
+      MYSQL_HOST: ${DB_MYSQL_HOST}  
     links: 
       - mysql
     restart: always
@@ -37,7 +40,7 @@ services:
 
 networks:
   default:
-      name: ${APP_NETWORK}
+      name: ${APP_NAME}
 
 volumes:
   zentao:
