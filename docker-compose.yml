@@ -1,4 +1,5 @@
-# image and docs: https://hub.docker.com/r/easysoft/zentao
+# image: https://hub.docker.com/r/easysoft/zentao
+# docs: https://github.com/easysoft/zentaopms
 
 version: '3.8'
 
@@ -14,6 +15,7 @@ services:
       # The belows vars is need, otherwise container error
       zentao_DB_HOST: ${DB_MYSQL_HOST}
       zentao_DB_PASSWORD: ${DB_MYSQL_PASSWORD}
+      
     links: 
       - mysql
     restart: always
