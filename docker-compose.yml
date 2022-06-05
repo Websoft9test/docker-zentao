@@ -13,8 +13,8 @@ services:
       - zentao:/www/zentaopms
     environment:
       # The belows vars is need, otherwise container error
-      # zentao_DB_HOST: ${DB_MYSQL_HOST}
-      # zentao_DB_PASSWORD: ${DB_MYSQL_PASSWORD}
+      zentao_DB_HOST: ${DB_MYSQL_HOST}
+      zentao_DB_PASSWORD: ${DB_MYSQL_PASSWORD}
       MYSQL_USER: ${DB_MYSQL_USER}
       MYSQL_PASSWORD: ${DB_MYSQL_PASSWORD}
       MYSQL_DB: ${DB_MYSQL_NAME}
