@@ -22,7 +22,7 @@ services:
     links: 
       - mysql
     restart: always
-    command: bash -c "cat /my_cmd > cmd.sh && chmod +x /cmd.sh && /cmd.sh"
+    entrypoint: "cat /my_cmd > cmd.sh && chmod +x /cmd.sh && /cmd.sh"
     configs:
       - source: my_cmd
       
